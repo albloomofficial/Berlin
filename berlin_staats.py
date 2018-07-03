@@ -61,7 +61,6 @@ def the_other_part(year):
     #     driver.close()
 
 
-if __name__ == "__main__":
     start_date = 1779
     end_date = 1915
     year_list = get_list_years(start_date, end_date)
