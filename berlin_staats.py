@@ -74,7 +74,7 @@ if __name__ == "__main__":
     print(year_list)
 
     with Pool(cpu_count()) as p:
-        p.map(the_other_part, year_list)
+        p.imap(the_other_part, year_list)
     p.close()
     p.join()
 
