@@ -17,7 +17,7 @@ def get_list_years(start_date, end_date):
     comulativecount = 0
     driver.close()
     return relevantyears
-    
+
 
 def the_other_part(year):
     sleep(1)
@@ -36,7 +36,7 @@ def the_other_part(year):
     daylinks = ["http://zefys.staatsbibliothek-berlin.de/{}".format(link.a.attrs['href']) for link in soup.find_all('td', {'class' :'tx-zefyskalender-daymarkiert'})]
     yearcom = 0
     comulativecount = 0
-    
+
     for thing in daylinks:
         r = requests.get(thing)
         html = r.text
@@ -46,7 +46,7 @@ def the_other_part(year):
 
         comulativecount += len(newspapers)
         yearcom += len(newspapers)
-        print('{}:Newspaper count: {}. Current year: {}'.format(name,comulativecount,year))
+        print('{}: Newspaper count: {}. Current year: {}'.format(name,comulativecount,year))
 
         with open("berlin_publication_numbers{}.csv".format(name),'a',
         encoding = 'utf-8') as myfile:
@@ -60,7 +60,6 @@ def the_other_part(year):
             myfile.close()
 
         sleep(1)
-        print('thing')
 
 
     # except:
