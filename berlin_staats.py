@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 import requests
-import time
+from time import sleep
 import csv
 from multiprocessing import cpu_count, Pool
 import multiprocessing
@@ -31,8 +31,6 @@ def the_other_part(year):
     yearcom = 0
     comulativecount = 0
     for thing in daylinks:
-        print('thing')
-        print('{}___{}'.format(name, year))
         r = requests.get(thing)
         html = r.text
         soup = BeautifulSoup(html,'html.parser')
