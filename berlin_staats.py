@@ -13,11 +13,12 @@ def get_list_years(start_date, end_date):
 
     yearlist = driver.find_element_by_xpath('//*[@id="tx-zefyskalender-yy"]').get_attribute('innerHTML')
     soup = BeautifulSoup(yearlist, 'html.parser')
-    relevantyears = [x.text for x in soup.find_all('option') if (int(x.text) > start_date) and (int(x.text) < end_date)]
+    relevantyears = [x.text.strip() for x in soup.find_all('option') if (int(x.text) > start_date) and (int(x.text) < end_date)]
     comulativecount = 0
     return relevantyears
 
 def the_other_part(year):
+    sleep(1)
     name = f'driver {str(multiprocessing.current_process().name.split("-")[1])}'
     name = name.replace(' ','')
     driver = webdriver.Chrome()
@@ -54,7 +55,6 @@ def the_other_part(year):
         sleep(1)
         print('thing')
     driver.close()
-    print('despacito')
     sleep(1)
     # except:
     #     driver.close()
