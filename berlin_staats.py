@@ -55,6 +55,7 @@ def the_other_part(year):
         sleep(1)
         print('thing')
     driver.Close()
+    print('despacito')
     sleep(1)
     # except:
     #     driver.close()
