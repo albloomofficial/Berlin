@@ -39,7 +39,7 @@ def the_other_part(year):
 
         comulativecount += len(newspapers)
         yearcom += len(newspapers)
-        print('Newspaer count: {}. Current year: {}'.format(comulativecount, year))
+        print('{}:Newspaper count: {}. Current year: {}'.format(name,comulativecount,year))
 
         with open("berlin_publication_numbers{}.csv".format(name),'a',
         encoding = 'utf-8') as myfile:
@@ -54,6 +54,7 @@ def the_other_part(year):
         sleep(1)
         print('thing')
     driver.close()
+    print('despacito')
     sleep(1)
     # except:
     #     driver.close()
@@ -68,6 +69,8 @@ if __name__ == "__main__":
         with open("berlin_publication_numbersdriver{}.csv".format(str(i+1)), 'w') as myfile:
             wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
             myfile.close()
+
+    print(year_list)
 
     with Pool(cpu_count()) as p:
         p.map(the_other_part, year_list)
