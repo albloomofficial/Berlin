@@ -51,9 +51,10 @@ def the_other_part(year):
             yearcom,
             comulativecount])
 
-        time.sleep(1)
+        sleep(1)
         print('thing')
     driver.close()
+    sleep(1)
     # except:
     #     driver.close()
 
