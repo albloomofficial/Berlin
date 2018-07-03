@@ -15,22 +15,28 @@ def get_list_years(start_date, end_date):
     soup = BeautifulSoup(yearlist, 'html.parser')
     relevantyears = [x.text.strip() for x in soup.find_all('option') if (int(x.text) > start_date) and (int(x.text) < end_date)]
     comulativecount = 0
+    driver.close()
     return relevantyears
+    
 
 def the_other_part(year):
     sleep(1)
     name = f'driver {str(multiprocessing.current_process().name.split("-")[1])}'
     name = name.replace(' ','')
-    driver = webdriver.Chrome()
-    driver.get('http://zefys.staatsbibliothek-berlin.de/index.php?id=kalender&no_cache=1&tx_zefyskalender_pi1%5Byy%5D=1785')
-    year = str(year)
-    # try:
-    select = Select(driver.find_element_by_xpath('//*[@id="tx-zefyskalender-yy"]'))
-    select.select_by_visible_text(year)
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
+##    driver = webdriver.Chrome()
+##    driver.get('http://zefys.staatsbibliothek-berlin.de/index.php?id=kalender&no_cache=1&tx_zefyskalender_pi1%5Byy%5D=1785')
+##
+##    # try:
+##    select = Select(driver.find_element_by_xpath('//*[@id="tx-zefyskalender-yy"]'))
+##    select.select_by_visible_text(year)
+##    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    page = requests.get('http://zefys.staatsbibliothek-berlin.de/index.php?id=kalender&no_cache=1&tx_zefyskalender_pi1%5Byy%5D={}'.format(year))
+    html = page.text
+    soup = BeautifulSoup(html, 'html.parser')
     daylinks = ["http://zefys.staatsbibliothek-berlin.de/{}".format(link.a.attrs['href']) for link in soup.find_all('td', {'class' :'tx-zefyskalender-daymarkiert'})]
     yearcom = 0
     comulativecount = 0
+    
     for thing in daylinks:
         r = requests.get(thing)
         html = r.text
@@ -51,16 +57,16 @@ def the_other_part(year):
             str(len(newspapers)),
             yearcom,
             comulativecount])
+            myfile.close()
 
         sleep(1)
         print('thing')
-    driver.Close()
-    print('despacito')
-    sleep(1)
+
+
     # except:
     #     driver.close()
 
-
+if __name__ == "__main__":
     start_date = 1779
     end_date = 1915
     year_list = get_list_years(start_date, end_date)
@@ -73,7 +79,7 @@ def the_other_part(year):
     print(year_list)
 
     with Pool(cpu_count()) as p:
-        p.imap(the_other_part, year_list)
+        p.map(the_other_part, year_list)
     p.close()
     p.join()
 
