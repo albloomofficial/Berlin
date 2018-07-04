@@ -105,13 +105,13 @@ def berlin_scraper(url_range, increment, i):
 
 if __name__ == "__main__":
 
-    with open("/Volumes/LaCie/Stamatov_python/Berlin_results/index.csv", 'a', encoding = 'utf-8') as myfile:
+    with open("index.csv", 'w', encoding = 'utf-8') as myfile:
         wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
         wr.writerow(['Publication', 'Date', 'Location'])
 
     slave_names = ["driver{}".format(i+1) for i in range(int(multiprocessing.cpu_count()*3/4))]
 
-    with open('berlin_publication_numbers.csv', 'r') as f:
+    with open('berlin_publication_merged.csv', 'r') as f:
         reader = csv.reader(f)
         your_list = list(reader)
 
