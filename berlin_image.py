@@ -19,6 +19,7 @@ eventlet.monkey_patch()
 
 def berlin_scraper(row):
     name = f'driver{str(multiprocessing.current_process().name.split("-")[1])}'
+    print('{}: I am actually working hehe'.format(name))
 
     result = requests.get(row[0])
     homepage = result.content
@@ -87,7 +88,7 @@ def berlin_scraper(row):
 
 if __name__ == "__main__":
     for i in range(cpu_count()):
-        with open("index_driver{}.csv".format(i), 'w', encoding = 'utf-8') as myfile:
+        with open("index_driver{}.csv".format(i+1), 'w', encoding = 'utf-8') as myfile:
             wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
 
     with open('berlin_publication_merged.csv', 'r') as f:
