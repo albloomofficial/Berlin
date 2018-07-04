@@ -14,9 +14,6 @@ from datetime import datetime
 import math
 
 
-
-eventlet.monkey_patch()
-
 def berlin_scraper(row):
     name = f'driver{str(multiprocessing.current_process().name.split("-")[1])}'
     print('{}: I am actually working hehe'.format(name))
@@ -99,6 +96,7 @@ if __name__ == "__main__":
     # increment = math.ceil(pages / (multiprocessing.cpu_count()*3/4))
     # print(increment)
     list_of_rows = [row[0] for row in list_of_pubs]
+    print('created the list of rows')
     with Pool(cpu_count()) as p:
         p.map(berlin_scraper, list_of_rows , chunksize = 10)
     p.close()
