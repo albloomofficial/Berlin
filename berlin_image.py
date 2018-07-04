@@ -7,6 +7,7 @@ import csv
 import eventlet
 import random
 import multiprocessing
+from multiprocessing import Pool, cpu_count
 import time
 from bs4 import BeautifulSoup
 from datetime import datetime
