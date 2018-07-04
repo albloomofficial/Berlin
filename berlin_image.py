@@ -39,6 +39,8 @@ def berlin_scraper(row):
         location = meta_data[2].strip().replace(' ', '_')
         date = meta_data[3].strip().replace(' ', '_')
 
+        print('I got this far!')
+
         with open("index_{}.csv".format(name), 'a', encoding = 'utf-8') as myfile:
             wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
             wr.writerow([title, date, location])
@@ -55,13 +57,10 @@ def berlin_scraper(row):
                 print('{}: same article'.format(name))
 
 
-        try:
+
             # with eventlet.Timeout(20):
-            urllib.request.urlretrieve(image, "Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page))
-        except:
-            newspapernumber -= 1
-            os.remove('Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page)')
-            continue
+        urllib.request.urlretrieve(image, "Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page))
+
 
         nextpage = soup.find('a', {'class': 'next'})
 
