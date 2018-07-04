@@ -22,7 +22,7 @@ def berlin_scraper(url_range, increment, i):
 
     print('I am {} and I will wait {} seconds'.format(name, i))
     time.sleep(i)
-    with open('berlin_publication_numbers.csv', 'r') as f:
+    with open('berlin_publication_merged.csv', 'r') as f:
         reader = csv.reader(f)
         your_list = list(reader)
 
@@ -53,12 +53,12 @@ def berlin_scraper(url_range, increment, i):
                 location = meta_data[2].strip().replace(' ', '_')
                 date = meta_data[3].strip().replace(' ', '_')
 
-                with open("/Volumes/LaCie/Stamatov_python/Berlin_results/index.csv", 'a', encoding = 'utf-8') as myfile:
+                with open("index.csv", 'a', encoding = 'utf-8') as myfile:
                     wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
                     wr.writerow([title, date, location])
 
                 image = test.img['src']
-                directory = "/Volumes/LaCie/Stamatov_python/Berlin_results/{}/{}/{}".format(location,title,date)
+                directory = "Berlin_results/{}/{}/{}".format(location,title,date)
 
                 try:
                     print('{}: working on {} in {} from  {}'.format(name, title, location, date))
@@ -71,10 +71,10 @@ def berlin_scraper(url_range, increment, i):
 
                 try:
                     with eventlet.Timeout(20):
-                        urllib.request.urlretrieve(image, "/Volumes/LaCie/Stamatov_python/Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page))
+                        urllib.request.urlretrieve(image, "Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page))
                 except:
                     newspapernumber -= 1
-                    os.remove('/Volumes/LaCie/Stamatov_python/Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page)')
+                    os.remove('Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page)')
                     continue
 
                 nextpage = soup.find('a', {'class': 'next'})
@@ -88,12 +88,12 @@ def berlin_scraper(url_range, increment, i):
                         test = soup.find('a', {'class' : 'imglink'})
                         image = test.img['src']
                         with eventlet.Timeout(20):
-                            urllib.request.urlretrieve(image, "/Volumes/LaCie/Stamatov_python/Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page))
+                            urllib.request.urlretrieve(image, "Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page))
                         nextpage = soup.find('a', {'class': 'next'})
 
                     except:
                         page -= 1
-                        os.remove('/Volumes/LaCie/Stamatov_python/Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page)')
+                        os.remove('Berlin_results/{}/{}/{}/{}{}.jpg".format(location,title,date,title,page)')
                         continue
 
 
