@@ -18,7 +18,7 @@ def berlin_scraper(row):
     name = f'driver{str(multiprocessing.current_process().name.split("-")[1])}'
     print('{}: I am actually working hehe'.format(name))
 
-    result = requests.get(row[0])
+    result = requests.get(row)
     homepage = result.content
     soup = BeautifulSoup(homepage, "html.parser")
     newspapers = soup.find_all('div', {'class' : 'tx-zefyskalender-thumbnail'})
