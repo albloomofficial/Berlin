@@ -1,8 +1,5 @@
 #!/bin/bash
 
-
-
-
 export PATH=$PATH:$(cd $(dirname "$0") && pwd -P)
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
 
@@ -16,11 +13,11 @@ curl -o chromedriver.zip http://chromedriver.storage.googleapis.com/$VERSION/chr
 unzip chromedriver.zip
 rm chromedriver.zip
 
+pip3 install pipenv
+pipenv install requests
+pipenv install selenium
+pipenv install bs4
+pipenv install eventlet
 
-pip3 install requests
-pip3 install selenium
-pip3 install bs4
-pip3 install eventlet
-
-python3 berlin_staats.py
-python3 berlin_image.py
+pipenv run python3 berlin_staats.py
+pipenv run python3 berlin_image.py
