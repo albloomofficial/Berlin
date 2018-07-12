@@ -39,7 +39,8 @@ If you are **not** clear yet about how github works (I am not familiar either) p
 
 ### Downloading the repo from GitHub:
 - Open the [Terminal](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line) on Mac or Linux.
-- Navigate to the folder where you would like to place the project. (I recommend just in your user folder but sometimes that gets clunky)
+- Navigate to the folder where you would like to place the project. (I recommend
+  just putting it in your home folder but sometimes that gets clunky)
 - Enter the following line into the Terminal.
 ```
 git clone https://github.com/albloomofficial/Berlin.git
