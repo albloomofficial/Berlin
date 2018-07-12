@@ -19,5 +19,5 @@ pip3 install selenium
 pip3 install bs4
 pip3 install eventlet
 
-pipenv run python3 berlin_staats.py
-pipenv run python3 berlin_image.py
+python3 berlin_staats.py
+python3 berlin_image.py
