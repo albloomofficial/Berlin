@@ -17,11 +17,10 @@ rm chromedriver.zip
 
 pip3 install pipenv
 pipenv —-three
-pipenv shell
 pipenv install requests
 pipenv install selenium
 pipenv install bs4
 pipenv install eventlet
 
-python3 berlin_staats.py
-python3 berlin_image.py
+pipenv run python3 berlin_staats.py
+pipenv run python3 berlin_image.py
