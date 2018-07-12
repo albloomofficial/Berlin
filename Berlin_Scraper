@@ -1,10 +1,10 @@
 #!/bin/bash
 
-export PATH=$PATH:`dirname "$0"`
+export PATH=$PATH:`realpath "$0"`
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
 
 echo $PATH
-cd `dirname "$0"`
+cd `realpath "$0"`
 pwd
 
 
