@@ -1,7 +1,9 @@
 #!/bin/bash
 export PATH=$PATH:`dirname "$0"`
+export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/
+export PATH=$PATH:LC_ALL=en_US.UTF-8
+export PATH=$PATH:LANG=en_US.UTF-8
 
-export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
 cd `dirname "$0"`
 pwd
 
