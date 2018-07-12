@@ -23,7 +23,7 @@ them manually (**ideally**), but whenever a new package is installed, pipenv wil
 
 
 ### berlin_staats.py and berlin_image.py:
-These are our python scripts. Techincally, these do everything. After Berlin_Scraper called pipenv to set up our project it will first run
+These are our python scripts. Techincally, these do everything. After Berlin_Scraper calls pipenv to set up our project it will first run
 berlin_staats and then berlin_image.
 
 berlin_staats first looks through the database for relevant newspapers and links to their image files and writes them to a csv file.
