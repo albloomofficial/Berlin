@@ -4,13 +4,13 @@ export PATH=$PATH:`realpath "$0"`
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
 
 echo $PATH
-cd `realpath "$0"`
+cd `reallink "$0"`
 pwd
 
 
 PLATFORM=mac64
 VERSION=$(curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-curl -o chromedriver.zip http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip 
+curl -o chromedriver.zip http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip
 unzip chromedriver.zip
 rm chromedriver.zip
 
