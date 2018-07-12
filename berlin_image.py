@@ -38,9 +38,18 @@ def berlin_scraper(row):
         location = meta_data[2].strip().replace(' ', '_')
         date = meta_data[3].strip().replace(' ', '_')
 
+        with open("index_merged.csv", "r") as file1:
+            existingLines = [line for line in csv.reader(file1)]
+
+        newrow = [title,date,location]
+
         with open("index_{}.csv".format(name), 'a', encoding = 'utf-8') as myfile:
             wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-            wr.writerow([title, date, location])
+            if newrow not in existingLines:
+                wr.writerow(newrow)
+            else:
+                print('already have this file')
+                continue
 
         image = test.img['src']
         directory = "Berlin_results/{}/{}/{}".format(location,title,date)
