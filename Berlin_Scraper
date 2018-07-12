@@ -10,3 +10,9 @@ VERSION=$(curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
 curl -o chromedriver.zip http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip 
 unzip chromedriver.zip
 rm chromedriver.zip
+
+pip3 install requests 
+pip3 install bs4
+pip3 install selenium 
+
+python3 berlin_staats.py
