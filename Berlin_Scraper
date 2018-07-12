@@ -1,24 +1,31 @@
 #!/bin/bash
+
+#define encoding language (important for pipenv)
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+#define the working directory and export it to the system PATH
 export PATH=$PATH:$(cd $(dirname "$0") && pwd -P)
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
-
 cd $(cd $(dirname "$0") && pwd -P)
-pwd
 
 
+#Download and unzip the chrome webdriver into the Berlin folder
 PLATFORM=mac64
 VERSION=$(curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
 curl -o chromedriver.zip http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip
 unzip chromedriver.zip
 rm chromedriver.zip
 
+#Install pipenv
 pip3 install pipenv
+
+#Install the packages we are using in the pipenv
 pipenv install requests
 pipenv install selenium
 pipenv install bs4
 pipenv install eventlet
 
+#Run the python scripts
 pipenv run python3 berlin_staats.py
 pipenv run python3 berlin_image.py

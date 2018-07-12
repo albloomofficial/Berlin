@@ -4,14 +4,14 @@ import urllib.request
 import os, errno
 import requests
 import csv
-import eventlet
 import random
 import multiprocessing
-from multiprocessing import Pool, cpu_count
+import math
 import time
+
+from multiprocessing import Pool, cpu_count
 from bs4 import BeautifulSoup
 from datetime import datetime
-import math
 
 
 def berlin_scraper(row):
@@ -79,7 +79,6 @@ def berlin_scraper(row):
                 soup = BeautifulSoup(html, 'html.parser')
                 test = soup.find('a', {'class' : 'imglink'})
                 image = test.img['src']
-                # with eventlet.Timeout(20):
 
                 urllib.request.urlretrieve(image,
                 "Berlin_results/{}/{}/{}/{}{}.jpg".format(location,
