@@ -1,24 +1,26 @@
 #!/bin/bash
 
-export PATH=$PATH:`readlink "$0"`
-export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
-
-echo $PATH
-cd `readlink "$0"`
-pwd
+echo $(cd $(dirname "$0") && pwd -P)/$(basename "$0")
 
 
-PLATFORM=mac64
-VERSION=$(curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-curl -o chromedriver.zip http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip
-unzip chromedriver.zip
-rm chromedriver.zip
-
-
-pip3 install requests
-pip3 install selenium
-pip3 install bs4
-pip3 install eventlet
-
-python3 berlin_staats.py
-python3 berlin_image.py
+# export PATH=$PATH:`dirname "$0"`
+# export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
+#
+# cd `dirname "$0"`
+# pwd
+#
+#
+# PLATFORM=mac64
+# VERSION=$(curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+# curl -o chromedriver.zip http://chromedriver.storage.googleapis.com/$VERSION/chromedriver_$PLATFORM.zip
+# unzip chromedriver.zip
+# rm chromedriver.zip
+#
+#
+# pip3 install requests
+# pip3 install selenium
+# pip3 install bs4
+# pip3 install eventlet
+#
+# python3 berlin_staats.py
+# python3 berlin_image.py
