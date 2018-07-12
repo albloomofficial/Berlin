@@ -3,7 +3,6 @@ export PATH=$PATH:`dirname "$0"`
 cd `dirname "$0"`
 pwd
 
-#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 PLATFORM=mac64
 VERSION=$(curl http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
