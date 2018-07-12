@@ -3,10 +3,10 @@
 
 
 
-export PATH=$PATH:$(cd $(dirname "$0") && pwd -P)/$(basename "$0")
+export PATH=$PATH:$(cd $(dirname "$0") && pwd -P)
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
 
-cd $(cd $(dirname "$0") && pwd -P)/$(basename "$0")
+cd $(cd $(dirname "$0") && pwd -P)
 pwd
 
 
