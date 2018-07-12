@@ -1,10 +1,10 @@
 #!/bin/bash
 
-export PATH=$PATH:`realpath "$0"`
+export PATH=$PATH:`readlink "$0"`
 export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin
 
 echo $PATH
-cd `reallink "$0"`
+cd `readlink "$0"`
 pwd
 
 
