@@ -11,7 +11,7 @@ The goal with this file is to maintain the file so that you can double click it 
 
 ### Pipfile.lock and Pipfile:
 Without getting technical, these files belong to the *pipenv* package manager. Generally speaking, to keep project folders and the computer
-as a whole more organized, it is common practive to set up *virtual environments*.
+as a whole more organized, it is common practice to set up *virtual environments*.
 
 
 Virtual environments allow you to install modules and packages specifically to this project folder and run scripts from the environment
