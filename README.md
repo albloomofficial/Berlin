@@ -11,14 +11,14 @@ The goal with this file is to maintain the file so that you can double click it 
 
 ### Pipfile.lock and Pipfile:
 Without getting technical, these files belong to the *pipenv* package manager. Generally speaking, to keep project folders and the computer
-as a whole more organized, it is common practive to set up *virtual environments*. 
+as a whole more organized, it is common practive to set up *virtual environments*.
 
 
 Virtual environments allow you to install modules and packages specifically to this project folder and run scripts from the environment
 without changing any of the folders outside of it. A bonus that comes with this, is knowing which modules and packages are actually used
 by the scripts in this project. This brings us to the two files:
 
-These two files are used by pipenv to set up and maintain a list of packages for this project. We do not ever need to alter 
+These two files are used by pipenv to set up and maintain a list of packages for this project. We do not ever need to alter
 them manually (**ideally**), but whenever a new package is installed, pipenv will take care of them.
 
 
@@ -48,7 +48,7 @@ git clone https://github.com/albloomofficial/Berlin.git
 Once this process is done you should have a folder called "Berlin" with the contents of this repo
 
 ### Downloading [Python](http://docs.python-guide.org/en/latest/starting/installation/):
-The above link might seem a little daunting but it contains a very good explination of why we are installing it this way and does a much
+The above link might seem a little daunting but it contains a very good explanation of why we are installing it this way and does a much
 better job than I ever would. Essentially:
 
 - We will install Python 3 not the, earlier, Python 2.
@@ -57,7 +57,7 @@ better job than I ever would. Essentially:
 - Use Homebrew to install Python
 
 ## Running the Scripts:
-I have annoted the python scripts and the Berlin_Scraper file to leave an idea of what each part does and why I wrote it this way. The steps
+I have annotated the python scripts and the Berlin_Scraper file to leave an idea of what each part does and why I wrote it this way. The steps
 should be:
 
 - Open berlin_staats.py and edit the numbers after the start_date and end_date variable.
@@ -72,5 +72,5 @@ if __name__ == "__main__":
     year_list = get_list_years(start_date, end_date)
 ```
 
- You are only editing the two numbers after start_date and end_date. Make sure that those dates exist first, by going to the calender 
+ You are only editing the two numbers after start_date and end_date. Make sure that those dates exist first, by going to the calendar
  section of the website.
