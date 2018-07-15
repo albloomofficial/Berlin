@@ -28,4 +28,6 @@ pipenv install eventlet
 
 #Run the python scripts
 pipenv run python3 berlin_staats.py
+cat berlin_publication_numbers* > berlin_publication_merged.csv
+
 pipenv run python3 berlin_image.py
